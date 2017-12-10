@@ -1,15 +1,23 @@
 package group.tmg.data.repository.login;
 
 
+import android.util.Log;
+
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
+import dagger.Module;
 import group.tmg.data.model.User;
 import group.tmg.data.network.LoginSpiceRequest;
 
+import static android.content.ContentValues.TAG;
+import static group.tmg.ui.activity.LoginActivity.USER_TAG;
+@Module
 public class LoginRemoteDataSource implements LoginDataSource{
+
+
     private final SpiceManager spiceManager;
 
     public LoginRemoteDataSource(SpiceManager spiceManager) {
@@ -19,18 +27,10 @@ public class LoginRemoteDataSource implements LoginDataSource{
     @Override
     public void login(LoginCallback callback, String username, String password) {
         LoginSpiceRequest request = new LoginSpiceRequest(username, password);
-        spiceManager.execute(request, null, DurationInMillis.ALWAYS_EXPIRED, new LoginRequestListener(callback));
+        Log.d(TAG, "loadDataFromNetwork: YA RABOTAYU");
+        spiceManager.execute(request, USER_TAG, DurationInMillis.ALWAYS_EXPIRED, new LoginRequestListener(callback));
     }
 
-    @Override
-    public void saveUser(String user) {
-        throw new UnsupportedOperationException("saveUser should be called on local data source!");
-    }
-
-    @Override
-    public User getUser() {
-        throw new UnsupportedOperationException("getUser should be called on local data source!");
-    }
 
     @Override
     public void unsubscribe() {

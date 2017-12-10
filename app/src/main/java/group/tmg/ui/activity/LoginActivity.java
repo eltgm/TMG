@@ -4,10 +4,12 @@ package group.tmg.ui.activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
+import group.tmg.App;
 import group.tmg.R;
 import group.tmg.presenter.LoginPresenter;
 import group.tmg.view.LoginView;
@@ -15,16 +17,20 @@ import group.tmg.view.LoginView;
 public class LoginActivity extends BaseActivity<LoginPresenter>
 implements LoginView, View.OnClickListener{
 
+    public final static String USER_TAG = "user";
+
     private EditText etUsername;
     private EditText etPassword;
-    private Button bLogin;
 
-    private LoginPresenter presenter;
+    @Inject
+    LoginPresenter presenter;
 
     @Override
-    public void onCreate( Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
         presenter = super.instantiatePresenter();
 
@@ -67,8 +73,10 @@ implements LoginView, View.OnClickListener{
 
     @Override
     protected LoginPresenter providePresenter() {
-        //LoginRepository loginRepository =
-        return null;
+
+        App.getPresenterComponent().inject(this);
+
+        return presenter;
     }
 
     @Override

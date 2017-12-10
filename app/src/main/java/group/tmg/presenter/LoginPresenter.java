@@ -7,9 +7,12 @@ import group.tmg.view.LoginView;
 
 
 public class LoginPresenter extends BasePresenter<LoginView> {
+
+
     private final LoginInteractor loginInteractor;
 
     public LoginPresenter(LoginInteractor loginInteractor) {
+
         this.loginInteractor = loginInteractor;
     }
 
