@@ -2,20 +2,17 @@ package group.tmg.data.repository.login;
 
 
 import group.tmg.data.model.User;
-import group.tmg.data.storage.LoginStorage;
+import group.tmg.data.storage.Storage;
 
 public class LoginRepository {
 
-
     private final LoginDataSource remoteDataSource;
 
+    private final Storage storage;
 
-    private final LoginStorage loginStorage;
-
-
-    public LoginRepository(LoginDataSource remoteDataSource, LoginStorage loginStorage) {
+    public LoginRepository(LoginDataSource remoteDataSource, Storage storage) {
         this.remoteDataSource = remoteDataSource;
-        this.loginStorage = loginStorage;
+        this.storage = storage;
     }
 
     public void unsubscribe() {remoteDataSource.unsubscribe();}
@@ -24,7 +21,7 @@ public class LoginRepository {
         remoteDataSource.login(new LoginDataSource.LoginCallback() {
             @Override
             public void onLoadCompleted(User.List users) {
-                loginStorage.saveUser(users.toString()); //из User в String
+                storage.saveUser(users.toString()); //из User в String
                 callback.onLoadCompleted(users);
             }
 

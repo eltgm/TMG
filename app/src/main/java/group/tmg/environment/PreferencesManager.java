@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 
 import javax.inject.Inject;
 
+import static group.tmg.App.USER_REQUEST_TAG;
+
 public class PreferencesManager {
     private static final String PREFERENCES_NAME = "TMG";
 
@@ -19,12 +21,12 @@ public class PreferencesManager {
     }
 
     public void putString(String value) {
-        getSharedPreferences().edit().putString(group.tmg.ui.activity.LoginActivity.USER_TAG, value).apply();
+        getSharedPreferences().edit().putString(USER_REQUEST_TAG, value).apply();
     }
 
     @Nullable
     public String getString() {
-        return getSharedPreferences().getString(group.tmg.ui.activity.LoginActivity.USER_TAG, null);
+        return getSharedPreferences().getString(USER_REQUEST_TAG, null);
     }
 
     private SharedPreferences getSharedPreferences() {

@@ -1,4 +1,4 @@
-package group.tmg.di.modules.loginModules;
+package group.tmg.di.modules.mainModules;
 
 import com.octo.android.robospice.SpiceManager;
 
@@ -14,13 +14,7 @@ public class DataIMPLModule {
 
     @Provides
     @DataIMPLScope
-    public StorageImpl provideLoginStorage(PreferencesManager preferencesManager){
+    public StorageImpl provideMainStorage(PreferencesManager preferencesManager){
         return new StorageImpl(preferencesManager);
-    }
-
-    @Provides
-    @DataIMPLScope
-    public LoginRemoteDataSource provideLoginDataSource(SpiceManager spiceManager){
-        return new LoginRemoteDataSource(spiceManager);
     }
 }

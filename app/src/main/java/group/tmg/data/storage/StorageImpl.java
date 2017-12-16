@@ -3,12 +3,12 @@ package group.tmg.data.storage;
 import group.tmg.data.model.User;
 import group.tmg.environment.PreferencesManager;
 
-public class LoginStorageImpl implements LoginStorage {
+public class StorageImpl implements Storage {
 
 
     private final PreferencesManager preferenceManager;
 
-    public LoginStorageImpl(PreferencesManager preferenceManager) {
+    public StorageImpl(PreferencesManager preferenceManager) {
         this.preferenceManager = preferenceManager;
     }
 

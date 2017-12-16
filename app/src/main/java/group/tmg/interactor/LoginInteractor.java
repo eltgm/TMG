@@ -5,7 +5,6 @@ import group.tmg.data.repository.login.LoginRepository;
 
 public class LoginInteractor {
 
-
     private final LoginRepository loginRepository;
 
     public LoginInteractor(LoginRepository loginRepository) {

@@ -1,4 +1,4 @@
-package group.tmg.di.modules.loginModules;
+package group.tmg.di.modules.mainModules;
 
 import dagger.Module;
 import dagger.Provides;
@@ -13,7 +13,7 @@ public class PresenterModule {
 
     @Provides
     @PresenterScope
-    public LoginPresenter provideLoginPresenter(LoginInteractor loginInteractor){
-        return new LoginPresenter(loginInteractor);
+    public MainPresenter provideMainPresenter(MainInteractor mainInteractor){
+        return new MainPresenter(mainInteractor);
     }
 }

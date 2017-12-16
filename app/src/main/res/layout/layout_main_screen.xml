@@ -12,9 +12,9 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/bDatePicker"
         android:ems="10"
+        android:hint="@string/filter"
         android:inputType="textPersonName"
-        android:labelFor="@+id/editText"
-        android:text="@string/filter" />
+        android:labelFor="@+id/editText" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

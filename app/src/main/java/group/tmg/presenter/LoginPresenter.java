@@ -5,9 +5,7 @@ import group.tmg.data.repository.login.LoginDataSource;
 import group.tmg.interactor.LoginInteractor;
 import group.tmg.view.LoginView;
 
-
 public class LoginPresenter extends BasePresenter<LoginView> {
-
 
     private final LoginInteractor loginInteractor;
 
@@ -29,6 +27,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     public void onLoginClicked(final String username, final String password){
+        getView().navigateToMainScreen();
         loginInteractor.login(new LoginDataSource.LoginCallback() {
             @Override
             public void onLoadCompleted(User.List users) {

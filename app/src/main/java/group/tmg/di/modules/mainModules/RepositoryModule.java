@@ -1,4 +1,4 @@
-package group.tmg.di.modules.loginModules;
+package group.tmg.di.modules.mainModules;
 
 import dagger.Module;
 import dagger.Provides;
@@ -13,9 +13,8 @@ public class RepositoryModule {
 
     @Provides
     @RepositoryScope
-    public LoginRepository provideLoginRepository(LoginRemoteDataSource loginDataSource,
-                                                  StorageImpl loginStorage){
-        return new LoginRepository(loginDataSource, loginStorage);
+    public MainRepository provideMainRepository(StorageImpl mainStorage){
+        return new MainRepository(mainStorage);
     }
 
 }

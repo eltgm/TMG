@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.activity.MainActivity"/>
+
         <service android:name=".data.network.TMGSpiceService"
             android:exported="false"/>
     </application>

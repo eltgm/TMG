@@ -1,5 +1,4 @@
-package group.tmg.di.modules.loginModules;
-
+package group.tmg.di.modules.mainModules;
 
 import android.content.Context;
 
@@ -12,7 +11,7 @@ import group.tmg.di.scopes.DataScope;
 import group.tmg.environment.PreferencesManager;
 
 @Module
-public class TestDataModule {
+public class DataModule {
 
     @Provides
     @DataScope
@@ -20,9 +19,4 @@ public class TestDataModule {
         return new PreferencesManager(context);
     }
 
-    @Provides
-    @DataScope
-    public SpiceManager provideSpiceManager(){
-        return new SpiceManager(TMGSpiceService.class);
-    }
 }

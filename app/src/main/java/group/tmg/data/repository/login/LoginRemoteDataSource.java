@@ -13,7 +13,8 @@ import group.tmg.data.model.User;
 import group.tmg.data.network.LoginSpiceRequest;
 
 import static android.content.ContentValues.TAG;
-import static group.tmg.ui.activity.LoginActivity.USER_TAG;
+import static group.tmg.App.USER_REQUEST_TAG;
+
 @Module
 public class LoginRemoteDataSource implements LoginDataSource{
 
@@ -28,7 +29,7 @@ public class LoginRemoteDataSource implements LoginDataSource{
     public void login(LoginCallback callback, String username, String password) {
         LoginSpiceRequest request = new LoginSpiceRequest(username, password);
         Log.d(TAG, "loadDataFromNetwork: YA RABOTAYU");
-        spiceManager.execute(request, USER_TAG, DurationInMillis.ALWAYS_EXPIRED, new LoginRequestListener(callback));
+        spiceManager.execute(request, USER_REQUEST_TAG, DurationInMillis.ALWAYS_EXPIRED, new LoginRequestListener(callback));
     }
 
 

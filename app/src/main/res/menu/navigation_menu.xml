@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/main_menu">
+        <item
+            android:id="@+id/general"
+            android:title="@string/general" />
+    </group>
+
+    <item android:title="@string/all_artist"
+        android:id="@+id/all_artist">
+        <menu>
+            <item
+                android:title="Первый артист"/>
+            <item
+                android:title="Второй артист"/>
+        </menu>
+    </item>
+
+</menu>

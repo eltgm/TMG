@@ -4,4 +4,20 @@
     <string name="button_auth">Авторизация</string>
     <string name="et_username">Имя пользователя</string>
     <string name="et_password">Пароль</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="general">Главная</string>
+    <string name="all_artist">Мои артисты</string>
+    <string name="filters">Фильтры</string>
+    <string name="by_artist">По артисту</string>
+    <string name="select_artist">Выберите артиста</string>
+    <string name="category">Категории</string>
+    <string name="select_categories">Выберите категории</string>
+    <string name="enter_transaction_name">Введите название транзакции</string>
+    <string name="by_sender">По отправителю</string>
+    <string name="select_sender">Выберите отправителя</string>
+    <string name="search_by_trans_name">Поиск по названию транзакции</string>
+    <string name="by_recipient">По полчателю</string>
+    <string name="select_recipient">Выберите получателя</string>
 </resources>

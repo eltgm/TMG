@@ -1,4 +1,4 @@
-package group.tmg.di.modules.loginModules;
+package group.tmg.di.modules.mainModules;
 
 import dagger.Module;
 import dagger.Provides;
@@ -13,7 +13,7 @@ public class InteractorModule {
 
     @Provides
     @InteractorScope
-    public LoginInteractor provideLoginInteractor(LoginRepository loginRepository){
-        return new LoginInteractor(loginRepository);
+    public MainInteractor provideMainInteractor(MainRepository mainRepository){
+        return new MainInteractor(mainRepository);
     }
 }

@@ -4,7 +4,7 @@ import com.octo.android.robospice.SpiceManager;
 
 import dagger.Component;
 import group.tmg.data.repository.login.LoginRemoteDataSource;
-import group.tmg.data.storage.LoginStorageImpl;
+import group.tmg.data.storage.StorageImpl;
 import group.tmg.di.modules.loginModules.DataIMPLModule;
 import group.tmg.di.scopes.DataIMPLScope;
 import group.tmg.environment.PreferencesManager;
@@ -19,5 +19,5 @@ public interface DataIMPLComponent {
 
     LoginRemoteDataSource loginDataSource();
 
-    LoginStorageImpl loginStorage();
+    StorageImpl loginStorage();
 }

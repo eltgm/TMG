@@ -16,6 +16,8 @@ import group.tmg.di.components.loginComponents.RepositoryComponent;
 
 public class App extends Application{
 
+    public final static String USER_REQUEST_TAG = "user";
+
     private static ContextComponent appComponent;
     public static ContextComponent getAppComponent() {
         return appComponent;

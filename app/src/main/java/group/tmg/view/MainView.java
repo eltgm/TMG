@@ -1,10 +1,14 @@
 package group.tmg.view;
 
 
-public interface MainView {
-    void initMenu();
+import android.support.design.widget.NavigationView;
 
-    void showMain();
+import group.tmg.data.model.User;
 
-    void showStatistics();
+public interface MainView extends NavigationView.OnNavigationItemSelectedListener {
+    void initMenu(User user);
+
+    void showGeneral();
+
+    //TODO добавить экраны, которые будет отображать изображение
 }
