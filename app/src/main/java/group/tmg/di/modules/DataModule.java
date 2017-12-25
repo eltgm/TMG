@@ -1,4 +1,4 @@
-package group.tmg.di.modules.loginModules;
+package group.tmg.di.modules;
 
 import android.content.Context;
 
@@ -15,13 +15,13 @@ public class DataModule {
 
     @Provides
     @DataScope
-    public PreferencesManager providePreferencesManager(Context context){
+    public PreferencesManager providePreferencesManager(Context context) {
         return new PreferencesManager(context);
     }
 
     @Provides
     @DataScope
-    public SpiceManager provideSpiceManager(){
+    public SpiceManager provideSpiceManager() {
         return new SpiceManager(TMGSpiceService.class);
     }
 }

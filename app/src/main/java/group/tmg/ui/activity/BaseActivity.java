@@ -10,18 +10,18 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     private static final String TAG_PRESENTER_HOLDER = "tag_presenter_holder";
 
     @SuppressWarnings("unchecked")
-    P instantiatePresenter(){
+    P instantiatePresenter() {
         final FragmentManager fm = getSupportFragmentManager();
         PresenterHolderFragment<P> holderFragment =
                 (PresenterHolderFragment<P>)
                         fm.findFragmentByTag(TAG_PRESENTER_HOLDER);
-        if(holderFragment == null) {
+        if (holderFragment == null) {
             holderFragment = PresenterHolderFragment.<P>newInstance();
             holderFragment.setPresenter(providePresenter());
             fm.beginTransaction().add(holderFragment, TAG_PRESENTER_HOLDER).commit();
         }
         return holderFragment.getPresenter();
-        }
+    }
 
-        protected abstract P providePresenter();
+    protected abstract P providePresenter();
 }

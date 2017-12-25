@@ -1,6 +1,6 @@
 package group.tmg.presenter;
 
-import group.tmg.data.model.User;
+import group.tmg.data.model.Message;
 import group.tmg.data.repository.login.LoginDataSource;
 import group.tmg.interactor.LoginInteractor;
 import group.tmg.view.LoginView;
@@ -26,11 +26,10 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         loginInteractor.unsubscribe();
     }
 
-    public void onLoginClicked(final String username, final String password){
-        getView().navigateToMainScreen();
+    public void onLoginClicked(final String username, final String password) {
         loginInteractor.login(new LoginDataSource.LoginCallback() {
             @Override
-            public void onLoadCompleted(User.List users) {
+            public void onLoadCompleted(Message message) {
                 getView().navigateToMainScreen();
             }
 

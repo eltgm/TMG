@@ -1,24 +1,36 @@
 package group.tmg.presenter;
 
+import java.util.List;
+
 import group.tmg.R;
-import group.tmg.data.model.User;
-import group.tmg.data.repository.main.MainDataSource;
-import group.tmg.interactor.MainInteractor;
+import group.tmg.data.model.Tag;
+import group.tmg.data.repository.tags.TagsDataSource;
+import group.tmg.interactor.ArtistsInteractor;
 import group.tmg.view.MainView;
 
-import static group.tmg.App.USER_REQUEST_TAG;
+public class MainPresenter extends BasePresenter<MainView> {
 
-public class MainPresenter extends BasePresenter<MainView>{
+    private final ArtistsInteractor artistsInteractor;
 
-    private final MainInteractor mainInteractor;
-
-    public MainPresenter(MainInteractor mainInteractor){
-        this.mainInteractor = mainInteractor;
+    public MainPresenter(ArtistsInteractor artistsInteractor) {
+        this.artistsInteractor = artistsInteractor;
     }
 
     @Override
     void onViewAttach() {
         super.onViewAttach();
+
+        artistsInteractor.getArtists(new TagsDataSource.MainCallback() {
+            @Override
+            public void onLoadCompleted(List<Tag> artists) {
+                getView().initMenu(artists);
+            }
+
+            @Override
+            public void onLoadError(String error) {
+                getView().showError(error);
+            }
+        });
     }
 
     @Override
@@ -26,24 +38,10 @@ public class MainPresenter extends BasePresenter<MainView>{
         super.onDestroy();
     }
 
-    public void onMainStart(){
-        mainInteractor.getUser(new MainDataSource.MainCallback() {
-            @Override
-            public void onLoadCompleted(User user) {
-                getView().initMenu(user);
-            }
-
-            @Override
-            public void onLoadError(String error) {
-
-            }
-        });
-    }
-
-    public void onNavigationItemSelected(int id){
-        switch (id){
+    public void onNavigationItemSelected(int id) {
+        switch (id) {
             case R.id.general:
-                getView().showGeneral();
+                getView().showHome();
                 break;
         }
     }

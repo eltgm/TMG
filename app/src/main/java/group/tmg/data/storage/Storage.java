@@ -1,11 +1,11 @@
 package group.tmg.data.storage;
 
 
-import group.tmg.data.model.User;
+import group.tmg.data.model.Message;
 
 public interface Storage {
 
-    void saveUser(String user);
+    void saveUser(Message message);
 
-    User getUser();
+    Message getUser();
 }

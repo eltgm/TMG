@@ -14,33 +14,46 @@ import group.tmg.di.components.loginComponents.PresenterComponent;
 import group.tmg.di.components.loginComponents.RepositoryComponent;
 
 
-public class App extends Application{
+public class App extends Application {
 
     public final static String USER_REQUEST_TAG = "user";
 
     private static ContextComponent appComponent;
+    private static DataComponent dataComponent;
+    private static DataIMPLComponent dataIMPLComponent;
+    private static RepositoryComponent repositoryComponent;
+    private static InteractorComponent interactorComponent;
+    private static PresenterComponent presenterComponent;
+
     public static ContextComponent getAppComponent() {
         return appComponent;
     }
 
-    private static DataComponent dataComponent;
-    public static DataComponent getDataComponent(){ return dataComponent;}
+    public static DataComponent getDataComponent() {
+        return dataComponent;
+    }
 
-    private static DataIMPLComponent dataIMPLComponent;
-    public static DataIMPLComponent getDataIMPLComponent(){ return dataIMPLComponent;}
+    public static DataIMPLComponent getDataIMPLComponent() {
+        return dataIMPLComponent;
+    }
 
-    private static RepositoryComponent repositoryComponent;
-    public static RepositoryComponent getRepositoryComponent(){ return repositoryComponent;}
+    public static RepositoryComponent getRepositoryComponent() {
+        return repositoryComponent;
+    }
 
-    private static InteractorComponent interactorComponent;
-    public static InteractorComponent getInteractorComponent(){ return interactorComponent;}
+    public static InteractorComponent getInteractorComponent() {
+        return interactorComponent;
+    }
 
-    private static PresenterComponent presenterComponent;
-    public static PresenterComponent getPresenterComponent(){ return presenterComponent;}
+    public static PresenterComponent getPresenterComponent() {
+        return presenterComponent;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+
         appComponent = DaggerContextComponent.builder()
                 .contextModule(new ContextModule(this))
                 .build();
@@ -65,5 +78,4 @@ public class App extends Application{
                 .interactorComponent(interactorComponent)
                 .build();
     }
-
 }

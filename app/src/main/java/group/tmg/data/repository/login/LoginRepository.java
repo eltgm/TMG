@@ -1,7 +1,7 @@
 package group.tmg.data.repository.login;
 
 
-import group.tmg.data.model.User;
+import group.tmg.data.model.Message;
 import group.tmg.data.storage.Storage;
 
 public class LoginRepository {
@@ -15,16 +15,32 @@ public class LoginRepository {
         this.storage = storage;
     }
 
-    public void unsubscribe() {remoteDataSource.unsubscribe();}
+    public void unsubscribe() {
+        remoteDataSource.unsubscribe();
+    }
 
-    public void login(final LoginDataSource.LoginCallback callback, final String username, final String password){
+    public void login(final LoginDataSource.LoginCallback callback, final String username, final String password) {
+        //TODO убрать тест
+        Message message = new Message();
+        message.setMessage("ЗАЛУПКА");
+        message.setSuccess(true);
+        if (message.getSuccess()) {
+            //TODO сохранение пользователя
+            callback.onLoadCompleted(message);
+        } else
+            callback.onLoadError(message.getMessage());
+        //storage.saveUser(user);
         remoteDataSource.login(new LoginDataSource.LoginCallback() {
             @Override
-            public void onLoadCompleted(User.List users) {
-                storage.saveUser(users.toString()); //из User в String
-                callback.onLoadCompleted(users);
+            public void onLoadCompleted(Message message) {
+                if (message.getSuccess()) {
+                    //TODO сохранение пользователя
+                    callback.onLoadCompleted(message);
+                } else
+                    callback.onLoadError(message.getMessage());
             }
 
+            //TODO восстановить
             @Override
             public void onLoadError(String error) {
                 callback.onLoadError(error);

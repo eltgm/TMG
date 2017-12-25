@@ -1,6 +1,8 @@
 package group.tmg.data.storage;
 
-import group.tmg.data.model.User;
+import com.google.gson.GsonBuilder;
+
+import group.tmg.data.model.Message;
 import group.tmg.environment.PreferencesManager;
 
 public class StorageImpl implements Storage {
@@ -13,13 +15,15 @@ public class StorageImpl implements Storage {
     }
 
     @Override
-    public void saveUser(String user) {
-        preferenceManager.putString(user);
+    public void saveUser(Message message) {
+        String serializedUser = new GsonBuilder().create().toJson(message);
+        preferenceManager.putString(serializedUser);
     }
 
     @Override
-    public User getUser() {
-        preferenceManager.getString();
-        return null;
+    public Message getUser() {
+        String serializedUser = preferenceManager.getString();
+
+        return new GsonBuilder().create().fromJson(serializedUser, Message.class);
     }
 }

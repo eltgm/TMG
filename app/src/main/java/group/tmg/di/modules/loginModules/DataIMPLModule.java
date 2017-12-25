@@ -14,13 +14,13 @@ public class DataIMPLModule {
 
     @Provides
     @DataIMPLScope
-    public StorageImpl provideLoginStorage(PreferencesManager preferencesManager){
+    public StorageImpl provideLoginStorage(PreferencesManager preferencesManager) {
         return new StorageImpl(preferencesManager);
     }
 
     @Provides
     @DataIMPLScope
-    public LoginRemoteDataSource provideLoginDataSource(SpiceManager spiceManager){
+    public LoginRemoteDataSource provideLoginDataSource(SpiceManager spiceManager) {
         return new LoginRemoteDataSource(spiceManager);
     }
 }

@@ -3,22 +3,22 @@ package group.tmg.data.network;
 
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
 
-import group.tmg.data.model.User;
+import group.tmg.data.model.Message;
 
-public class LoginSpiceRequest extends RetrofitSpiceRequest<User.List, Login> {
+public class LoginSpiceRequest extends RetrofitSpiceRequest<Message, Login> {
 
     private final String username;
     private final String password;
 
     public LoginSpiceRequest(String username, String password) {
-        super(User.List.class, Login.class);
+        super(Message.class, Login.class);
         this.username = username;
         this.password = password;
     }
 
 
     @Override
-    public User.List loadDataFromNetwork() throws Exception {
+    public Message loadDataFromNetwork() throws Exception {
         return getService().user(username, password);
     }
 }

@@ -11,9 +11,11 @@ public class LoginInteractor {
         this.loginRepository = loginRepository;
     }
 
-    public void login(LoginDataSource.LoginCallback callback, final String username, final String password){
+    public void login(LoginDataSource.LoginCallback callback, final String username, final String password) {
         loginRepository.login(callback, username, password);
     }
 
-    public void unsubscribe() {loginRepository.unsubscribe();}
+    public void unsubscribe() {
+        loginRepository.unsubscribe();
+    }
 }

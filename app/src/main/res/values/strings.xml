@@ -20,4 +20,27 @@
     <string name="search_by_trans_name">Поиск по названию транзакции</string>
     <string name="by_recipient">По полчателю</string>
     <string name="select_recipient">Выберите получателя</string>
+    <string name="new_transaction">Новая транзакция</string>
+    <string name="tags">Теги:</string>
+    <string name="select_tags">Выберите теги</string>
+    <string name="new_tags">Новые теги:</string>
+    <string name="tag_name">Название тега</string>
+    <string name="plus_tag">+</string>
+    <string name="transaction_name_choose">Название:</string>
+    <string name="transaction_name">Название транзакции</string>
+    <string name="artist">Артист:</string>
+    <string name="sender">Отправитель:</string>
+    <string name="recipient">Получатель:</string>
+    <string name="currency">Валюта:</string>
+    <string name="amount">Сумма</string>
+    <string name="close">Закрыть</string>
+    <string name="add_transaction">Добавить транзакцию</string>
+    <string name="add_artist">Добавить артиста</string>
+
+    <string-array name="catlist">
+        <item>Кот</item>
+        <item>Кошка</item>
+        <item>Котёнок</item>
+        <item>Животное</item>
+    </string-array>
 </resources>

@@ -16,13 +16,12 @@ import group.tmg.presenter.LoginPresenter;
 import group.tmg.view.LoginView;
 
 public class LoginActivity extends BaseActivity<LoginPresenter>
-implements LoginView, View.OnClickListener{
-
-    private EditText etUsername;
-    private EditText etPassword;
+        implements LoginView, View.OnClickListener {
 
     @Inject
     LoginPresenter presenter;
+    private EditText etUsername;
+    private EditText etPassword;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,6 @@ implements LoginView, View.OnClickListener{
         presenter = super.instantiatePresenter();
 
         initViews();
-        findViewById(R.id.bLogin).setOnClickListener(this);
     }
 
     @Override
@@ -64,9 +62,11 @@ implements LoginView, View.OnClickListener{
         startActivity(intent);
     }
 
-    private void initViews(){
+    private void initViews() {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
+
+        findViewById(R.id.bLogin).setOnClickListener(this);
     }
 
     @Override
@@ -84,7 +84,7 @@ implements LoginView, View.OnClickListener{
         String username = etUsername.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
-        if (TextUtils.isEmpty(username)){ //если имя пользователя пустое - ошибка
+        if (TextUtils.isEmpty(username)) { //если имя пользователя пустое - ошибка
             etUsername.setError("required");
             etUsername.requestFocus();
             return;

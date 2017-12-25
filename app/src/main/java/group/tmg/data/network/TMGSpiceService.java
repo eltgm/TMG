@@ -3,7 +3,7 @@ package group.tmg.data.network;
 
 import com.octo.android.robospice.retrofit.RetrofitGsonSpiceService;
 
-public class TMGSpiceService extends RetrofitGsonSpiceService{
+public class TMGSpiceService extends RetrofitGsonSpiceService {
     private static final String BASE_URL = "";
 
     @Override

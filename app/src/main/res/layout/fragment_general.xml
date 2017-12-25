@@ -2,33 +2,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
+    <RelativeLayout
+        android:id="@+id/main_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/tvSpent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvReceived" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tvFilters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/main_info"
         android:text="@string/filters" />
 
     <LinearLayout
         android:id="@+id/llFilters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/tvFilters">
+        android:layout_below="@+id/tvFilters"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/by_artist" />
 
-        <MultiAutoCompleteTextView
+        <group.tmg.environment.DelayAutoCompleteTextView
             android:id="@+id/acArtist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/select_artist" />
+            android:hint="@string/select_artist"
+            android:imeOptions="flagNoExtractUi|actionSearch" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,9 +79,10 @@
             android:text="@string/by_sender" />
 
         <Spinner
-            android:id="@+id/acSender"
+            android:id="@+id/mainSender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
             android:text="@string/select_sender" />
 
         <TextView
@@ -70,7 +91,7 @@
             android:text="@string/by_recipient" />
 
         <Spinner
-            android:id="@+id/acRecipient"
+            android:id="@+id/mainRecipient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/select_recipient" />
@@ -82,15 +103,17 @@
         android:id="@+id/rvTransaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llFilters"/>
+        android:layout_below="@+id/llFilters"
+        app:stackFromEnd="false"
+        tools:listitem="@layout/transaction_item" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/bAddTransaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:focusable="true" />
+        android:focusable="true"
+        app:srcCompat="@android:drawable/ic_input_add" />
 </RelativeLayout>

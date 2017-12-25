@@ -9,14 +9,14 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 import dagger.Module;
-import group.tmg.data.model.User;
+import group.tmg.data.model.Message;
 import group.tmg.data.network.LoginSpiceRequest;
 
 import static android.content.ContentValues.TAG;
 import static group.tmg.App.USER_REQUEST_TAG;
 
 @Module
-public class LoginRemoteDataSource implements LoginDataSource{
+public class LoginRemoteDataSource implements LoginDataSource {
 
 
     private final SpiceManager spiceManager;
@@ -38,7 +38,7 @@ public class LoginRemoteDataSource implements LoginDataSource{
         spiceManager.shouldStop();
     }
 
-    private class LoginRequestListener implements RequestListener<User.List>{
+    private class LoginRequestListener implements RequestListener<Message> {
         private final LoginCallback callback;
 
         public LoginRequestListener(LoginCallback callback) {
@@ -51,8 +51,8 @@ public class LoginRemoteDataSource implements LoginDataSource{
         }
 
         @Override
-        public void onRequestSuccess(User.List users) {
-            callback.onLoadCompleted(users);
+        public void onRequestSuccess(Message message) {
+            callback.onLoadCompleted(message);
         }
     }
 }

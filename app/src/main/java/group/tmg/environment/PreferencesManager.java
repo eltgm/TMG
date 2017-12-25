@@ -10,11 +10,9 @@ import static group.tmg.App.USER_REQUEST_TAG;
 
 public class PreferencesManager {
     private static final String PREFERENCES_NAME = "TMG";
-
+    private static SharedPreferences sharedPreferences;
     @Inject
     Context context;
-
-    private static SharedPreferences sharedPreferences;
 
     public PreferencesManager(Context context) {
         this.context = context;

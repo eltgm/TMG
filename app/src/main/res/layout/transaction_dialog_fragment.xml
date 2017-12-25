@@ -1,6 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:id="@+id/mainGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="8">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:text="@string/tags" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/acTags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:hint="@string/select_tags" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="1"
+            android:text="@string/new_tags" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/newTags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_row="1"
+            android:hint="@string/tag_name" />
+
+        <Button
+            android:id="@+id/addNewTag"
+            android:layout_width="51dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="end"
+            android:layout_row="1"
+            android:text="@string/plus_tag" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="2"
+            android:text="@string/transaction_name_choose" />
+
+        <EditText
+            android:id="@+id/edTransactionName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_row="2"
+            android:ems="10"
+            android:hint="@string/transaction_name"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="3"
+            android:text="@string/artist" />
+
+        <Spinner
+            android:id="@+id/sArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_row="3"
+            android:entries="@array/catlist" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="4"
+            android:text="@string/sender" />
+
+        <Spinner
+            android:id="@+id/sSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_row="4"
+            android:entries="@array/catlist" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="5"
+            android:text="@string/recipient" />
+
+        <Spinner
+            android:id="@+id/sRecipient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_row="5"
+            android:entries="@array/catlist" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="6"
+            android:text="@string/currency" />
+
+        <Spinner
+            android:id="@+id/sCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_row="6"
+            android:entries="@array/catlist" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="7"
+            android:text="@string/amount" />
+
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_row="7"
+            android:ems="10"
+            android:hint="0"
+            android:inputType="textPersonName" />
+
+    </GridLayout>
+
+
+    <Button
+        android:id="@+id/bCloseTransDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/mainGrid"
+        android:gravity="start"
+        android:text="@string/close" />
+
+    <Button
+        android:id="@+id/bAddTransFromDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/mainGrid"
+        android:layout_below="@+id/mainGrid"
+        android:layout_toEndOf="@id/bCloseTransDialog"
+        android:text="@string/add_transaction" />
+
+
 </RelativeLayout>

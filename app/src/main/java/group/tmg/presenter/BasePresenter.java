@@ -4,22 +4,22 @@ package group.tmg.presenter;
 public class BasePresenter<V> {
     private V view;
 
-    public void attachView(V view){
+    public void attachView(V view) {
         this.view = view;
         onViewAttach();
     }
 
-    public void detachView(){
+    public void detachView() {
         this.view = null;
     }
 
-    V getView(){
+    V getView() {
         return view;
     }
 
-    void onViewAttach(){
+    void onViewAttach() {
     }
 
-    void onDestroy(){
+    void onDestroy() {
     }
 }

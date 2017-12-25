@@ -6,7 +6,7 @@ import com.octo.android.robospice.SpiceManager;
 
 import dagger.Component;
 import group.tmg.ContextComponent;
-import group.tmg.di.modules.loginModules.DataModule;
+import group.tmg.di.modules.DataModule;
 import group.tmg.di.scopes.DataScope;
 import group.tmg.environment.PreferencesManager;
 
